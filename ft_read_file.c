@@ -12,12 +12,9 @@
 
 #include "fillit.h"
 
-/* char    **getting_map(char *str)
- {
-     int i;
- }
-*/
-char    *ft_read_file(char *av)
+//need to free buf
+
+char        *ft_read_file(char *av)
 {
     int fd;
     char *buf;
@@ -32,4 +29,54 @@ char    *ft_read_file(char *av)
         ft_error();
     close (fd);
     return (buf);
+}
+
+static int  count_blocks(char *buf)
+{
+    int nmb;
+    int i;
+
+    nmb = 1;
+    i = 20;
+    while (buf[i] && buf[i] == '\n')
+    {
+        nmb++;
+        i += 21;
+    }
+    return (nmb);
+}
+
+void    fill_tetri(t_tetri **tmp, char *buf)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while (i < 20)
+    {
+        if (buf[i] == '#')
+        {
+            (*tmp)->x[j] = i % 5;
+            (*tmp)->y[j] = i / 5;
+        }
+        i++;
+        j++;
+    }
+}
+
+t_tetri     *tetri_list(char *buf)
+{
+    char    c;
+    int     nmb;
+    t_tetri *tmp;
+
+    nmb = count_blocks(buf);
+    c == 'A';
+    if (!(tmp = (t_tetri*)malloc(sizeof(t_tetri))))
+        ft_error();
+    while (nmb > 0)
+    {
+
+    }
 }
