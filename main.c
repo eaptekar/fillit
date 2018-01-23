@@ -14,9 +14,16 @@
 
 int     main(int ac, char **av)
 {
+    char    *buf;
+    t_tetri *list;
+
+    buf = ft_read_file(av[1]);
     if (ac == 2)
-        printf("%s", ft_read_file(av[1]));
+        printf("%s", buf);
     else
         write(1, "usage: ./fillit map_file\n", 25);
+    list = parse_tetri(buf);
+    print_list(list);
+    free(buf);
     return (0);
 }

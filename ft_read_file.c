@@ -16,8 +16,8 @@
 
 char        *ft_read_file(char *av)
 {
-    int fd;
-    char *buf;
+    int     fd;
+    char    *buf;
 
     fd = open(av, O_RDONLY);
     if (fd == -1)
@@ -46,37 +46,57 @@ static int  count_blocks(char *buf)
     return (nmb);
 }
 
-void    fill_tetri(t_tetri **tmp, char *buf)
+static void    tetri_coord(t_tetri **tmp, char *buf, int nmb)
 {
-    int i;
-    int j;
+    int     i;
+    int     j;
+    int     all;
+    char    *array;
 
     i = 0;
     j = 0;
+    all = count_blocks(buf);
+    array = ft_strsub(buf, (all - nmb)*21, 20);
     while (i < 20)
     {
-        if (buf[i] == '#')
+        if (array[i] == '#')  //записываем координаты тетрамины (x, y)
         {
             (*tmp)->x[j] = i % 5;
             (*tmp)->y[j] = i / 5;
+            j++;
         }
         i++;
-        j++;
     }
+    while (--j >= 0)    //нормировка на ноль, перемещаем тетрамины в верхний левый угол
+    {
+        (*tmp)->x[j] = (*tmp)->x[j] - (*tmp)->x[0];
+        (*tmp)->y[j] = (*tmp)->y[j] - (*tmp)->y[0];
+    }
+    free(array);
 }
 
-t_tetri     *tetri_list(char *buf)
+t_tetri     *parse_tetri(char *buf)
 {
     char    c;
     int     nmb;
     t_tetri *tmp;
+    t_tetri *list;
 
     nmb = count_blocks(buf);
-    c == 'A';
-    if (!(tmp = (t_tetri*)malloc(sizeof(t_tetri))))
+    c = 'A';
+    if (!(list = (t_tetri*)malloc(sizeof(t_tetri))))
         ft_error();
+    tmp = list;
     while (nmb > 0)
     {
-
+        tmp->c = c;
+        tetri_coord(&tmp, buf, nmb);
+        if (!(tmp->next = (t_tetri*)malloc(sizeof(t_tetri))))
+            ft_error();
+        tmp = tmp->next;
+        c++;
+        nmb--;
     }
+    tmp->next = NULL;
+    return (list);
 }

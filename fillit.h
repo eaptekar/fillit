@@ -32,8 +32,10 @@ typedef struct s_tetri
 int		ft_valid(char *buf); // первая проверка фигуры
 void    ft_error(void); // выводит error при невалидной карте
 char    *ft_read_file(char *av); // считывание файла
+t_tetri *parse_tetri(char *buf); //запись фигур в список
 void	ft_bzero(void *s, size_t n);
 char	*ft_strnew(size_t size);
-
+char    *ft_strsub(char const *s, unsigned int start, size_t len);
+void	print_list(t_tetri *list); // для проверки
 
 #endif

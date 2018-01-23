@@ -16,15 +16,15 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = valid.c ft_error.c ft_read_file.c ft_strnew.c ft_bzero.c
+SRC = valid.c ft_error.c ft_read_file.c ft_strnew.c ft_bzero.c ft_strsub.c print_list.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) -c $(FLAGS) $(SRC)
-	@$(CC) -o $(NAME) main.c $(OBJ)
+	$(CC) -c $(FLAGS) $(SRC)
+	$(CC) -o $(NAME) main.c $(OBJ)
 
 clean:
 	@rm -rf $(OBJ) main.o
