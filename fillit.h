@@ -27,7 +27,6 @@ typedef struct 		s_tetri
 	int				y[4];
 	char			c;
 	struct s_tetri	*next;
-    struct s_tetri  *prev;
 }					t_tetri;
 
 int					ft_valid(char *buf); // первая проверка фигуры

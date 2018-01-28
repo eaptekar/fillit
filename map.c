@@ -4,7 +4,11 @@
 
 #include "fillit.h"
 
+<<<<<<< HEAD
 int  size_map(int nmb)
+=======
+static int  size_map(int nmb)
+>>>>>>> 9779050bef29a01e7fabb9cd42cefa1478209904
 {
 	int n;
 
@@ -17,6 +21,7 @@ int  size_map(int nmb)
 	}
 }
 
+<<<<<<< HEAD
 char    **gen_map(int n)
 {
 	int     i;
@@ -24,6 +29,17 @@ char    **gen_map(int n)
 	char    **map;
 
 	j = 0;
+=======
+char    **gen_map(int nmb)
+{
+	int     i;
+	int     j;
+	int     n;
+	char    **map;
+
+	j = 0;
+	n = size_map(nmb);
+>>>>>>> 9779050bef29a01e7fabb9cd42cefa1478209904
 	if (!(map = (char**)malloc(sizeof(char*) * n + 1)))
 		ft_error();
 	while (j < n)
@@ -42,6 +58,7 @@ char    **gen_map(int n)
 	map[j] = NULL;
 	return (map);
 }
+<<<<<<< HEAD
 
 
 char    **write_map(t_tetri *list, char **map, int n) //запись тетрамины - unchecked yet
@@ -88,3 +105,5 @@ char    **clear_map(t_tetri *list, char **map, int n) //удаление тет�
 	}
 	return (map);
 }
+=======
+>>>>>>> 9779050bef29a01e7fabb9cd42cefa1478209904
