@@ -4,6 +4,19 @@
 
 #include "fillit.h"
 
+static void     new_coord(t_tetri **list, int i, int j)
+{
+    int count;
+
+    count = 0;
+    while (count < 4)
+    {
+        (*list)->x[count] += i;
+        (*list)->y[count] += j;
+        count++;
+    }
+}
+
 static char     **rec_alg(char **map, t_tetri *list, int n)
 {
     int     i;
@@ -18,8 +31,9 @@ static char     **rec_alg(char **map, t_tetri *list, int n)
         i = 0;
         while (i < n)
         {
+            new_coord(&list, i, j);
             if (check_insert_tetri(list, map, n) == 0)
-                final_map = rec_alg(write_map(list, map, n), list->next, n);
+                final_map = write_map(list, map, n);
             if (final_map)
                 return (final_map);
             map = clear_map(list, map, n);

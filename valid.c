@@ -95,7 +95,7 @@ int     check_insert_tetri(t_tetri *list, char **map, int n)
     int count;
 
     count = 0;
-    while (count < n)
+    while (count < 4)
     {
         if (list->x[count] < n && list->y[count] < n &&
                 map[list->y[count]][list->x[count]] == '.')
@@ -103,7 +103,7 @@ int     check_insert_tetri(t_tetri *list, char **map, int n)
             if (count == 3)
                 return (0);
         }
-        count ++;
+        count++;
     }
     return (1);
 }
