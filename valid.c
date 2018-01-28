@@ -89,3 +89,21 @@ int     ft_valid(char *buf)
     }
     return (0);
 }
+
+int     check_insert_tetri(t_tetri *list, char **map, int n)
+{
+    int count;
+
+    count = 0;
+    while (count < n)
+    {
+        if (list->x[count] < n && list->y[count] < n &&
+                map[list->y[count]][list->x[count]] == '.')
+        {
+            if (count == 3)
+                return (0);
+        }
+        count ++;
+    }
+    return (1);
+}
