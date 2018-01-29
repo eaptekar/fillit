@@ -8,12 +8,12 @@ static void     new_coord(t_tetri **list, int i, int j)
 {
     int count;
 
-    count = 3;
-    while (count >= 0)
+    count = 0;
+    while (count < 4)
     {
-        (*list)->x[count] += i - (*list)->x[0];
-        (*list)->y[count] += j - (*list)->y[0];
-        count--;
+        (*list)->x[count] += i;
+        (*list)->y[count] += j;
+        count++;
     }
 }
 
@@ -26,7 +26,6 @@ static char     **rec_alg(char **map, t_tetri *list, int n)
     j = 0;
     if (list->next == NULL)
         return (map);
-    final_map = NULL;
     while (j < n)
     {
         i = 0;
