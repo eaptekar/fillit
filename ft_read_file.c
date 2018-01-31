@@ -14,8 +14,8 @@
 
 char		*ft_read_file(char *av)
 {
-	int	fd;
-	int	i;
+	int		fd;
+	int		i;
 	char	*buf;
 
 	i = 0;
@@ -26,17 +26,17 @@ char		*ft_read_file(char *av)
 		ft_error();
 	read(fd, buf, 546);
 	while (buf[i])
-		i++;	
+		i++;
 	if (ft_valid(buf) == 1 || i < 19)
 		ft_error();
-	close (fd);
+	close(fd);
 	return (buf);
 }
 
-int		count_blocks(char *buf)
+int			count_blocks(char *buf)
 {
-	int	nmb;
-	int	i;
+	int		nmb;
+	int		i;
 
 	nmb = 0;
 	i = 19;
@@ -50,9 +50,9 @@ int		count_blocks(char *buf)
 
 static void	tetri_coord(t_tetri **tmp, char *buf, int nmb)
 {
-	int	i;
-	int	j;
-	int	all;
+	int		i;
+	int		j;
+	int		all;
 	char	*array;
 
 	i = 0;
@@ -74,9 +74,9 @@ static void	tetri_coord(t_tetri **tmp, char *buf, int nmb)
 
 static void	mod_coord(t_tetri **tmp)
 {
-	int	min_x;
-	int	min_y;
-	int	j;
+	int		min_x;
+	int		min_y;
+	int		j;
 
 	j = 1;
 	min_x = (*tmp)->x[0];
@@ -104,7 +104,7 @@ static void	mod_coord(t_tetri **tmp)
 t_tetri		*parse_tetri(char *buf)
 {
 	char	c;
-	int	nmb;
+	int		nmb;
 	t_tetri	*tmp;
 	t_tetri	*list;
 

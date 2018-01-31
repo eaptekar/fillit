@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzamyati <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/31 15:13:36 by vzamyati          #+#    #+#             */
+/*   Updated: 2018/01/31 15:13:37 by vzamyati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-int	size_map(int nmb)
+int			size_map(int nmb)
 {
-	int	n;
+	int		n;
 
 	n = 2;
 	while (1)
@@ -13,10 +25,10 @@ int	size_map(int nmb)
 	}
 }
 
-char	**gen_map(int n)
+char		**gen_map(int n)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**map;
 
 	j = 0;
@@ -25,7 +37,7 @@ char	**gen_map(int n)
 	while (j < n)
 	{
 		i = 0;
-		if(!(map[j] = (char*)malloc(sizeof(char) * n + 1)))
+		if (!(map[j] = (char*)malloc(sizeof(char) * n + 1)))
 			ft_error();
 		while (i < n)
 		{
@@ -39,12 +51,11 @@ char	**gen_map(int n)
 	return (map);
 }
 
-
-char	**write_tetri(t_tetri *list, char **map, int n)
+char		**write_tetri(t_tetri *list, char **map, int n)
 {
-	int	i;
-	int	j;
-	int	count;
+	int		i;
+	int		j;
+	int		count;
 
 	count = 0;
 	j = 0;
@@ -53,7 +64,7 @@ char	**write_tetri(t_tetri *list, char **map, int n)
 		i = 0;
 		while (i < n)
 		{
-			if(list->x[count] == i && list->y[count] == j)
+			if (list->x[count] == i && list->y[count] == j)
 			{
 				map[j][i] = list->c;
 				count++;
@@ -66,15 +77,17 @@ char	**write_tetri(t_tetri *list, char **map, int n)
 	return (map);
 }
 
-char	**clear_tetri(t_tetri *list, char **map, int n)
+char		**clear_tetri(t_tetri *list, char **map, int n)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	j = 0;
-	while (j < n) {
+	while (j < n)
+	{
 		i = 0;
-		while (i < n) {
+		while (i < n)
+		{
 			if (map[j][i] == list->c)
 				map[j][i] = '.';
 			i++;

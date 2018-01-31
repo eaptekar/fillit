@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libfunctions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzamyati <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/31 15:11:30 by vzamyati          #+#    #+#             */
+/*   Updated: 2018/01/31 15:11:32 by vzamyati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 static void	ft_putchar(char c)
@@ -14,7 +26,7 @@ void		ft_putstr(const char *s)
 
 static void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (n != 0)
@@ -29,7 +41,7 @@ static void	ft_bzero(void *s, size_t n)
 
 char		*ft_strnew(size_t size)
 {
-	char *str;
+	char	*str;
 
 	str = (char*)malloc(sizeof(char) * size + 1);
 	if (!str)

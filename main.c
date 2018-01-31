@@ -12,15 +12,15 @@
 
 #include "fillit.h"
 
-void	ft_error(void)
+void		ft_error(void)
 {
 	ft_putstr("error");
-	exit (1);
+	exit(1);
 }
 
-void	print_map(char **map)
+void		print_map(char **map)
 {
-	int	j;
+	int		j;
 
 	j = 0;
 	while (map[j])
@@ -30,10 +30,10 @@ void	print_map(char **map)
 	}
 }
 
-int	main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	char	*buf;
-	int	nmb;
+	int		nmb;
 	t_tetri	*list;
 
 	if (ac != 2)

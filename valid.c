@@ -12,10 +12,10 @@
 
 #include "fillit.h"
 
-static int	ft_valid_conn(char *buf, int j)
+static int		ft_valid_conn(char *buf, int j)
 {
-	int	touch;
-	int	i;
+	int			touch;
+	int			i;
 
 	i = 0;
 	touch = 0;
@@ -39,12 +39,12 @@ static int	ft_valid_conn(char *buf, int j)
 	return (1);
 }
 
-static int	ft_valid_symbol(char *buf, int j)
+static int		ft_valid_symbol(char *buf, int j)
 {
-	int	dot;
-	int	hash;
-	int	endl;
-	int	i;
+	int			dot;
+	int			hash;
+	int			endl;
+	int			i;
 
 	i = 0;
 	dot = 0;
@@ -67,10 +67,10 @@ static int	ft_valid_symbol(char *buf, int j)
 	return (1);
 }
 
-int		ft_valid(char *buf)
+int				ft_valid(char *buf)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
 
 	i = 0;
 	j = 0;
@@ -78,9 +78,12 @@ int		ft_valid(char *buf)
 	{
 		if (ft_valid_conn(buf, j) || ft_valid_symbol(buf, j))
 			return (1);
-		if (buf[4 + j] == '\n' && buf[9 + j] == '\n' && buf[14 + j] == '\n' && buf[19 + j] == '\n' && buf[20 + j] == '\0')
+		if (buf[4 + j] == '\n' && buf[9 + j] == '\n' && buf[14 + j] == '\n'
+			&& buf[19 + j] == '\n' && buf[20 + j] == '\0')
 			return (0);
-		if (buf[4 + j] == '\n' && buf[9 + j] == '\n' && buf[14 + j] == '\n' && buf[19 + j] == '\n' && buf[20 + j] == '\n' && (buf[21 + j] == '.' || buf[21 + j] == '#'))
+		if (buf[4 + j] == '\n' && buf[9 + j] == '\n' && buf[14 + j] == '\n'
+			&& buf[19 + j] == '\n' && buf[20 + j] == '\n'
+			&& (buf[21 + j] == '.' || buf[21 + j] == '#'))
 			j += 21;
 		else
 			return (1);
@@ -88,21 +91,23 @@ int		ft_valid(char *buf)
 	return (0);
 }
 
-int		check_insert_tetri(t_tetri *list, char **map, int n)
+int				check_insert_tetri(t_tetri *list, char **map, int n)
 {
-	int	count;
+	int			count;
 
 	count = 0;
 	while (count < 4)
 	{
-		if ((list->y[count] >= 0 && list->y[count] < n) && (list->x[count] >= 0 && list->x[count]< n) && map[list->y[count]][list->x[count]] == '.')
+		if ((list->y[count] >= 0 && list->y[count] < n)
+			&& (list->x[count] >= 0 && list->x[count] < n)
+			&& map[list->y[count]][list->x[count]] == '.')
 		{
 			count++;
 			if (count == 4)
 				return (0);
 		}
 		else
-			break;
+			break ;
 	}
 	return (1);
 }

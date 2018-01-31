@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solver.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzamyati <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/31 15:16:27 by vzamyati          #+#    #+#             */
+/*   Updated: 2018/01/31 15:16:28 by vzamyati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-static void	new_coord(t_tetri **list, int i, int j)
+static void		new_coord(t_tetri **list, int i, int j)
 {
-	int	count;
+	int			count;
 
 	count = 3;
 	while (count >= 0)
@@ -13,11 +25,11 @@ static void	new_coord(t_tetri **list, int i, int j)
 	}
 }
 
-static char	**rec_alg(char **map, t_tetri *list, int n)
+static char		**rec_alg(char **map, t_tetri *list, int n)
 {
-	int	i;
-	int	j;
-	char	**final_map;
+	int			i;
+	int			j;
+	char		**final_map;
 
 	j = 0;
 	if (list->next == NULL)
@@ -43,11 +55,11 @@ static char	**rec_alg(char **map, t_tetri *list, int n)
 	return (NULL);
 }
 
-void		solve_map(t_tetri *list, int nmb)
+void			solve_map(t_tetri *list, int nmb)
 {
-	int	n;
-	char	**map;
-	char	**result;
+	int			n;
+	char		**map;
+	char		**result;
 
 	n = size_map(nmb);
 	map = gen_map(n);
