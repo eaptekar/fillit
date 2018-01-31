@@ -1,14 +1,10 @@
-//
-// Created by Eugene APTEKAR on 1/24/18.
-//
-
 #include "fillit.h"
 
-int  size_map(int nmb)
+int	size_map(int nmb)
 {
-	int n;
+	int	n;
 
-	n = 4;
+	n = 2;
 	while (1)
 	{
 		if (nmb * 4 <= n * n)
@@ -17,14 +13,14 @@ int  size_map(int nmb)
 	}
 }
 
-char    **gen_map(int n)
+char	**gen_map(int n)
 {
-	int     i;
-	int     j;
-	char    **map;
+	int	i;
+	int	j;
+	char	**map;
 
 	j = 0;
-	if (!(map = (char**)malloc(sizeof(char*) * n + 1)))
+	if (!(map = (char**)malloc(sizeof(char*) * (n + 1))))
 		ft_error();
 	while (j < n)
 	{
@@ -44,11 +40,11 @@ char    **gen_map(int n)
 }
 
 
-char    **write_map(t_tetri *list, char **map, int n) //запись тетрамины - unchecked yet
+char	**write_tetri(t_tetri *list, char **map, int n)
 {
-	int i;
-	int j;
-	int count;
+	int	i;
+	int	j;
+	int	count;
 
 	count = 0;
 	j = 0;
@@ -64,17 +60,16 @@ char    **write_map(t_tetri *list, char **map, int n) //запись тетра�
 			}
 			i++;
 		}
-		map[j][i] = '\0';
 		j++;
 	}
 	map[j] = NULL;
 	return (map);
 }
 
-char    **clear_map(t_tetri *list, char **map, int n) //удаление тетрамины - unchecked yet
+char	**clear_tetri(t_tetri *list, char **map, int n)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 0;
 	while (j < n) {
